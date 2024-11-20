@@ -1,16 +1,6 @@
-// Here lies the code of @Ardusa 
-//it did what it was supposed to do pretty well
-//but in got the death from the big man
-
-
-
-
-
-
-
-
-
-
+// Here lies the code of @Ardusa
+// it did what it was supposed to do pretty well
+// but in got the death from the big man
 
 // package frc.robot.commands.ShooterCommands;
 
@@ -50,7 +40,7 @@
 //         mArm = Arm.getInstance();
 //         mShooter = Shooter.getInstance();
 //         mIntake = Intake.getInstance();
-        
+
 //         autoAim = true;
 //         chargeUntil = () -> true;
 
@@ -63,7 +53,7 @@
 //      * Calculates the desired setpoint of the arm using robotPose and then charges
 //      * the shooter motors. When the user presses the defined button, the shooter
 //      * will shoot and the command ends
-//      * 
+//      *
 //      * @param chargeUntil the boolean supplier that, when returns true, will shoot
 //      *                    the piece
 //      */
@@ -82,7 +72,7 @@
 //     /**
 //      * @deprecated
 //      * Set the shooter to a specific position and shoots when within 1 degree
-//      * 
+//      *
 //      * @param target in degrees of THE SHOOTER, not the extension bar
 //      */
 //     public AimAndShoot(double target) {
@@ -101,7 +91,7 @@
 //     /**
 //      * @deprecated
 //      * Set the shooter to a specific position and shoots when within 1 degree
-//      * 
+//      *
 //      * @param target      in degrees of THE SHOOTER, not the extension bar
 //      * @param chargeUntil the boolean supplier that, when returns true, will shoot
 //      *                    the piece
@@ -130,11 +120,13 @@
 //         shooter.postStatus("Charging Up");
 
 //         if (debugMode) {
-//             System.out.println("\n*************************** Debug Stats (initialize) ***************************");
+//             System.out.println("\n*************************** Debug Stats (initialize)
+// ***************************");
 //             System.out.println("Shooter position: " + mArm.getArmPosition());
 //             System.out.println("Shooter target position: " + armSetpoint);
 //             System.out.println("Error: " + (armSetpoint - mArm.getArmPosition()));
-//             System.out.println("*************************** Debug Stats (initialize) ***************************\n");
+//             System.out.println("*************************** Debug Stats (initialize)
+// ***************************\n");
 //         }
 //     }
 
@@ -153,7 +145,8 @@
 //         // }
 
 //         // if (Math.abs(speakerPose.getY()
-//         //         - Drivetrain.getInstance().getPose().getY()) < Constants.Vision.SpeakerDeadBand
+//         //         - Drivetrain.getInstance().getPose().getY()) <
+// Constants.Vision.SpeakerDeadBand
 //         //         && Drivetrain.getInstance().getPose().getX() < 1.6) {
 //         //     shootSpeed = 0.6;
 //         // } else {
@@ -181,13 +174,13 @@
 //         // else if the arm is within 1.5 degrees of the target and the arm is not moving
 //         else if (mArm.atSetpoint()) {
 //             pieceHasBeenLoaded = true;
-            
+
 //             // if the shooter i;//s ready to shoot and the user has pressed the button
 //             if ((mShooter.readyToShoot()) && chargeUntil.get()) {
 //                 mShooter.shoot(Constants.ShooterConstants.feederShootValue, shootSpeed);
 //                 shooter.postStatus("Shooting");
 //             }
-            
+
 //             // if the shooter isnt charge up yet or the user has not said to shoot yet
 //             else {
 //                 mShooter.shoot(0, shootSpeed);
@@ -204,11 +197,13 @@
 //         }
 
 //         if (debugMode) {
-//             System.out.println("\n*************************** Debug Stats (execute) ***************************");
+//             System.out.println("\n*************************** Debug Stats (execute)
+// ***************************");
 //             System.out.println("Shooter position: " + mArm.getArmPosition());
 //             System.out.println("Shooter target position: " + armSetpoint);
 //             System.out.println("Error: " + (armSetpoint - mArm.getArmPosition()));
-//             System.out.println("*************************** Debug Stats (execute) ***************************\n");
+//             System.out.println("*************************** Debug Stats (execute)
+// ***************************\n");
 //         }
 //     }
 
@@ -230,7 +225,7 @@
 //         mArm.setMotionMagic(Constants.ArmConstants.SetPoints.kIntake);
 
 //         if (interrupted) {
-            
+
 //             shooter.postStatus("Aim And Shoot Interrupted");
 //         }
 //     }

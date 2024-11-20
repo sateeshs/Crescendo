@@ -25,7 +25,7 @@
 //     /**
 //      * This command will wait until a piece is in the shooter and user speciified
 //      * condition is met, then shoot
-//      * 
+//      *
 //      * @param feedUntil a supplier that returns true when the shooter should shoot,
 //      *                  false means to charge up
 //      */

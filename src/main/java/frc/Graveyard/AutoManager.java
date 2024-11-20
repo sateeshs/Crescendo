@@ -1,8 +1,6 @@
-// Here lies the remains of @Ardusa's auto manager 
-//it looked good but unfortunatly it didn't have the personality for him 
-//febuary 2024 - late march 2024
-
-
+// Here lies the remains of @Ardusa's auto manager
+// it looked good but unfortunatly it didn't have the personality for him
+// febuary 2024 - late march 2024
 
 // package frc.robot.commands.AutoCommands;
 
@@ -139,9 +137,10 @@
 
 //         Robot.autoTab.addBoolean("Shoot", () -> shoot).withPosition(2, 0).withSize(2, 1)
 //                 .withWidget(BuiltInWidgets.kBooleanBox);
-//         Robot.autoTab.addBoolean("Ready To Shoot", () -> mShooter.readyToShootAdvanced()).withPosition(2, 1)
+//         Robot.autoTab.addBoolean("Ready To Shoot", () ->
+// mShooter.readyToShootAdvanced()).withPosition(2, 1)
 //                 .withSize(2, 1).withWidget(BuiltInWidgets.kBooleanBox);
-                
+
 //         Robot.autoTab.addString("Auto Status", () -> status).withPosition(2, 4).withSize(2, 1)
 //                 .withWidget(BuiltInWidgets.kTextView);
 //     }
@@ -373,7 +372,8 @@
 //     public void postAutoStatus(String status) {
 //         if ((status.contains("Time") || status.contains("time") || status.contains("Shooting"))
 //                 && this.status != status) {
-//             Shuffleboard.addEventMarker(status + " (" + Timer.getMatchTime() + ")", "" + Timer.getMatchTime(),
+//             Shuffleboard.addEventMarker(status + " (" + Timer.getMatchTime() + ")", "" +
+// Timer.getMatchTime(),
 //                     EventImportance.kCritical);
 //         }
 

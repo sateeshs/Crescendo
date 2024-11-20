@@ -1,11 +1,13 @@
-//package frc.robot;
+// package frc.robot;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import frc.robot.subsystems.Drivetrain.Drivetrain;
 import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -15,6 +17,25 @@ import org.junit.jupiter.api.Test;
 // https://junit.org/junit5/docs/current/user-guide/
 
 class TestExample {
+  Drivetrain drivetrain;
+
+  @BeforeEach
+  void setup() {
+    // leftMotor = new FakeMotorController();
+    // rightMotor = new FakeMotorController();
+    // drivetrain = new Drivetrain(leftMotor, rightMotor);
+    // motor = new FakeMotorController(0);
+    // elevator = new Elevator(motor);
+    // drivetrain = new Drivetrain(leftMotor, rightMotor);
+    // m_simMotor =
+    //     new PWMSim(IntakeConstants.kMotorPort); // create our simulation PWM motor controller
+    // m_simPiston =
+    //     new DoubleSolenoidSim(
+    //         PneumaticsModuleType.CTREPCM,
+    //         IntakeConstants.kPistonFwdChannel,
+    //         IntakeConstants.kPistonRevChannel); // create our simulation solenoid
+    drivetrain = Drivetrain.getInstance();
+  }
 
   @Test
   void lambdaExpressions() {

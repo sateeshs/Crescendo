@@ -5,46 +5,46 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 
 public class Shoot extends Command {
-    Shooter shooter;
-    boolean force;
+  Shooter shooter;
+  boolean force;
 
-    public Shoot(boolean force) {
-        shooter = Shooter.getInstance();
-        this.force = force;
+  public Shoot(boolean force) {
+    shooter = Shooter.getInstance();
+    this.force = force;
 
-        this.addRequirements(shooter);
-        this.setName("Shoot");
+    this.addRequirements(shooter);
+    this.setName("Shoot");
+  }
+
+  @Override
+  public void initialize() {
+    shooter.setShooterMotors(1);
+    shooter.setFeederMotor(0);
+    shooter.postStatus("Charging Shooter");
+  }
+
+  @Override
+  public void execute() {
+    if (force || shooter.readyToShoot()) {
+      shooter.setFeederMotor(1);
+      shooter.postStatus("Shot Fired");
+    }
+  }
+
+  @Override
+  public boolean isFinished() {
+    if (force) {
+      return false;
     }
 
-    @Override
-    public void initialize() {
-        shooter.setShooterMotors(1);
-        shooter.setFeederMotor(0);
-        shooter.postStatus("Charging Shooter");
-    }
-    
-    @Override
-    public void execute() {
-        if (force || shooter.readyToShoot()) {
-            shooter.setFeederMotor(1);
-            shooter.postStatus("Shot Fired");
-        }
-    }
+    return !Intake.getInstance().getShooterSensor();
+  }
 
-    @Override
-    public boolean isFinished() {
-        if (force) {
-            return false;
-        }
-        
-        return !Intake.getInstance().getShooterSensor();
-    }
-
-    @Override
-    public void end(boolean interrupted) {
-        Intake.getInstance().setHolding(false);
-        shooter.setShooterMotors(0);
-        shooter.setFeederMotor(0);
-        shooter.postStatus("Stopping Shooter");
-    }
+  @Override
+  public void end(boolean interrupted) {
+    Intake.getInstance().setHolding(false);
+    shooter.setShooterMotors(0);
+    shooter.setFeederMotor(0);
+    shooter.postStatus("Stopping Shooter");
+  }
 }

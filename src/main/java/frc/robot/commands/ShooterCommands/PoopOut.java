@@ -6,30 +6,31 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 
 public class PoopOut extends Command {
-    Shooter shooter;
+  Shooter shooter;
 
-    public PoopOut() {
-        shooter = Shooter.getInstance();
+  public PoopOut() {
+    shooter = Shooter.getInstance();
 
-        this.addRequirements(shooter);
-        this.setName("Poop Out Piece");
-    }
+    this.addRequirements(shooter);
+    this.setName("Poop Out Piece");
+  }
 
-    @Override
-    public void execute() {
-        shooter.shoot(Constants.ShooterConstants.feederShootValue, Constants.ShooterConstants.shooterPoopSpeed);
-        shooter.postStatus("Pooping");
-    }
+  @Override
+  public void execute() {
+    shooter.shoot(
+        Constants.ShooterConstants.feederShootValue, Constants.ShooterConstants.shooterPoopSpeed);
+    shooter.postStatus("Pooping");
+  }
 
-    @Override
-    public boolean isFinished() {
-        return !Intake.getInstance().getShooterSensor();
-    }
+  @Override
+  public boolean isFinished() {
+    return !Intake.getInstance().getShooterSensor();
+  }
 
-    @Override
-    public void end(boolean interrupted) {
-        Intake.getInstance().setHolding(false);
-        shooter.setShooterMotors(0);
-        shooter.setFeederMotor(0);
-    }
+  @Override
+  public void end(boolean interrupted) {
+    Intake.getInstance().setHolding(false);
+    shooter.setShooterMotors(0);
+    shooter.setFeederMotor(0);
+  }
 }

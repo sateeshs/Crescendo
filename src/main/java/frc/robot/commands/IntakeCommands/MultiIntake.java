@@ -5,40 +5,38 @@ import frc.robot.Constants;
 import frc.robot.subsystems.Intake;
 
 public class MultiIntake extends Command {
-    Intake intake;
+  Intake intake;
 
-    public MultiIntake() {
-        intake = Intake.getInstance();
+  public MultiIntake() {
+    intake = Intake.getInstance();
 
-        this.addRequirements(intake);
-        this.setName("Multi Intake");
+    this.addRequirements(intake);
+    this.setName("Multi Intake");
+  }
+
+  @Override
+  public void initialize() {
+    intake.setExtend(true);
+    intake.setIntake(Constants.IntakeConstants.intakeMotorSpeed);
+    intake.setBelt(Constants.IntakeConstants.beltIntakeSpeed);
+    intake.postStatus("Intaking Multiple");
+  }
+
+  @Override
+  public void execute() {
+    if (intake.getShooterSensor()) {
+      intake.setBelt(0.3);
+      intake.setIntake(0.6);
+    } else {
+      intake.setBelt(Constants.IntakeConstants.beltIntakeSpeed);
+      intake.setIntake(Constants.IntakeConstants.intakeMotorSpeed);
     }
+  }
 
-    @Override
-    public void initialize() {
-        intake.setExtend(true);
-        intake.setIntake(Constants.IntakeConstants.intakeMotorSpeed);
-        intake.setBelt(Constants.IntakeConstants.beltIntakeSpeed);
-        intake.postStatus("Intaking Multiple");
-    }
-
-    @Override
-    public void execute() {
-        if (intake.getShooterSensor()) {
-            intake.setBelt(0.3);
-            intake.setIntake(0.6);
-        }
-
-        else {
-            intake.setBelt(Constants.IntakeConstants.beltIntakeSpeed);
-            intake.setIntake(Constants.IntakeConstants.intakeMotorSpeed);
-        }
-    }
-
-    @Override
-    public void end(boolean interrupted) {
-        intake.setExtend(false);
-        intake.setIntake(0);
-        intake.setBelt(0);
-    }
+  @Override
+  public void end(boolean interrupted) {
+    intake.setExtend(false);
+    intake.setIntake(0);
+    intake.setBelt(0);
+  }
 }

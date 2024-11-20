@@ -5,32 +5,30 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 
 public class QuickFeed extends Command {
-    Intake intake;
-    Shooter shooter;
+  Intake intake;
+  Shooter shooter;
 
-    /**
-     * A command that sets the belt to half power to go up 
-     */
-    public QuickFeed() {
-        intake = Intake.getInstance();
-        shooter = Shooter.getInstance();
+  /** A command that sets the belt to half power to go up */
+  public QuickFeed() {
+    intake = Intake.getInstance();
+    shooter = Shooter.getInstance();
 
-        this.addRequirements(intake, shooter);
-        this.setName("Quick Feed");
-    }
+    this.addRequirements(intake, shooter);
+    this.setName("Quick Feed");
+  }
 
-    @Override
-    public void execute() {
-        intake.postStatus("Quick Feed");
-        shooter.postStatus("Quick Feed");
+  @Override
+  public void execute() {
+    intake.postStatus("Quick Feed");
+    shooter.postStatus("Quick Feed");
 
-        intake.setBelt(0.5);
-        shooter.setFeederMotor(0.5);
-    }
+    intake.setBelt(0.5);
+    shooter.setFeederMotor(0.5);
+  }
 
-    @Override
-    public void end(boolean interrupted) {
-        intake.setBelt(0);
-        shooter.setFeederMotor(0);
-    }
+  @Override
+  public void end(boolean interrupted) {
+    intake.setBelt(0);
+    shooter.setFeederMotor(0);
+  }
 }
